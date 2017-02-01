@@ -1,28 +1,24 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <img src="./assets/img/vue-logo.png"> -->
+
+      <RootHeader></RootHeader>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+        <router-view></router-view>
+    </div>
+  </div><!-- fim do /.container-fluid da página toda -->
 </template>
 
 <script>
-import Hello from './components/Hello'
+import RootHeader from './components/header'
 
 export default {
   name: 'app',
-  components: {
-    Hello
-  }
+  components: { RootHeader }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="sass" src="assets/css/scss/app.scss"></style>
