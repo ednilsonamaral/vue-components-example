@@ -1,12 +1,22 @@
 <template>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand link-img-header" href="/">
-        <img src="../../assets/img/vue-logo.png" class="img-header">
-        <p>Componentes</p>
-      </a>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" @toggle="onToggleMenu" @click="toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="barraFixaTop">
+        <a class="navbar-brand link-img-header" href="/">
+          <img src="../../assets/img/vue-logo.png" class="img-header">
+          <p>Componentes</p>
+        </a>
+      </div>
+
+
+      <div class="collapse navbar-collapse" :class="{ in: isOpen }">
         <ul class="nav navbar-nav">
           <router-link to="/sobre" tag="li">
             <a>Sobre</a>
@@ -24,6 +34,21 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+
+  methods: {
+    toggle () {
+      this.$emit('toggle')
+    },
+
+    onToggleMenu () {
+      this.isOpen = !this.isOpen
+    }
+  }
 }
 </script>
 
